@@ -19,16 +19,19 @@ import javax.swing.JOptionPane;
 
     public class HelloSocket implements Runnable {
 
+        Decodificacion decodificador;
+        
         /* Constructor */
         public HelloSocket() {
             Thread treadListener = new Thread(this);
             treadListener.start();
+            decodificador = new Decodificacion(new Ascii());
         }
 
         /* Client:Data >> Socket >> Server */
         public void socket(String msg) {
             try {
-                Socket client = new Socket("172.16.128.179", 5000); // portSend 5000
+                Socket client = new Socket("192.168.0.13", 5000); // portSend 5000
                 DataOutputStream outBuffer = new DataOutputStream(client.getOutputStream());
                 outBuffer.writeUTF(msg);
                 client.close();
@@ -54,6 +57,7 @@ import javax.swing.JOptionPane;
                     inDataBuffer = new DataInputStream(socket.getInputStream());
                     String msg = inDataBuffer.readUTF();
                     System.out.println("Recibo: " + msg);
+                    decodificador.recibirEntrada(Integer.parseInt(msg));
                     socket.close();
                 }
             } catch (IOException e) {

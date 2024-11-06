@@ -21,19 +21,15 @@ public class Ascii {
 
     public Ascii() {
         tabla = new ArrayList<String>();
-                tabla.add("gtre");
-
         texto = "";
         leerTxtTabla();
-        leerTxtCodificar();
     }
 
     private void leerTxtTabla() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("data/ascii.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("data/asciiComp.txt"));
             String linea = br.readLine();
             while (linea != null) {
-                linea = linea.substring(linea.length() - 1);
                 tabla.add(linea);
                 linea = br.readLine();
             }
@@ -43,21 +39,17 @@ public class Ascii {
         }
     }
 
-    private void leerTxtCodificar() {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("data/texto.txt"));
-            String linea = br.readLine();
-            while (linea != null) {
-                texto += linea;
-                linea = br.readLine();
+    public boolean contains(String c) {
+        int i = 0;
+        for (String s : tabla) {
+            if (c.equals(s)) {
+                return true;
             }
-            br.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
         }
+        return false;
     }
-
-    public int contains(String c) {
+    
+    public int getIndex(String c){
         int i = 0;
         for (String s : tabla) {
             if (c.equals(s)) {
