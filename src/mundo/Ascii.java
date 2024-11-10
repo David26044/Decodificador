@@ -67,6 +67,9 @@ public class Ascii {
     }
 
     public String getCode(int index) {
+        if (index >= tabla.size()) {
+            return null;
+        }
         return tabla.get(index);
     }
 
@@ -74,7 +77,15 @@ public class Ascii {
         tabla.add(c);
     }
 
+    public int length(){
+        return tabla.size();
+    }
+    
     public String getTexto() {
         return texto;
     }   
+    
+    public String getLast(){
+        return tabla.getLast();
+    }
 }

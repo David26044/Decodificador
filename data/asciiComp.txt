@@ -7,7 +7,7 @@ ENQ
 ACK
 BEL
 BS
-HS
+HT
 LF
 VT
 FF

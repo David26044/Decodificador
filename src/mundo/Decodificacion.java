@@ -38,6 +38,9 @@ public class Decodificacion {
         }
         if (!peB) { // primera vez que llega se, solo se lee.
             se = diccionario.getCode(in);
+            if (se == null) {
+                se = pe + pe.substring(0,1); // si se no existe, se es igual al último recibido mas su primer caracter
+            }
             ps = pe + se.substring(0,1); //se concatenan las dos entradas, pe y solo el primer caracter de se
             veryfPs(in);
             System.out.println(texto);
@@ -47,13 +50,8 @@ public class Decodificacion {
     }
     
     public void decodificar(String cod){
-        if (cod.equals("LF")) {
-            texto.append("\n");
-            return;
-        }
-        if (cod.equals("HT")) {
-            texto.append("\t");
-            return;
+        if (cod.contains("LF")) {
+            cod.replaceAll("LF", "\n");
         }
         texto.append(cod);
     }
@@ -62,11 +60,7 @@ public class Decodificacion {
         if (!diccionario.contains(ps)) { // si ps no está en el diccionario
             diccionario.put(ps); //se agrega ps
         }
-        if (se.equals("LF")) {
-            texto.append("\n");
-        }else{
-            decodificar(se); //se decodifica se
-        }
+        decodificar(se);
         pe = se;
         se = "";
     }
