@@ -44,10 +44,11 @@ public class Decodificacion {
             }
             if (se.equals(diccionario.getCode(10))) {
                 ps = pe + se;
-            } else {
+            } else 
+{
                 ps = pe + se.substring(0, 1); //se concatenan las dos entradas, pe y solo el primer caracter de se
             }
-            veryfPs(in);
+            veryfPs();
             return;
         }
     }
@@ -56,7 +57,7 @@ public class Decodificacion {
         ctrl.setDecod(cod);
     }
 
-    public void veryfPs(int in) {
+    public void veryfPs() {
         if (!diccionario.contains(ps)) { // si ps no está en el diccionario
             diccionario.put(ps); //se agrega ps
         }

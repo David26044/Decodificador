@@ -55,8 +55,8 @@ import javax.swing.JOptionPane;
                 while (true) {
                     socket = serverSocket.accept();
                     inDataBuffer = new DataInputStream(socket.getInputStream());
-                    String msg = inDataBuffer.readUTF();
-                    decodificador.recibirEntrada(Integer.parseInt(msg));
+                    int msg = inDataBuffer.readInt();
+                    decodificador.recibirEntrada(msg);
                     socket.close();
                 }
             } catch (IOException e) {
