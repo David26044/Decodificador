@@ -5,10 +5,13 @@
 package mundo;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,21 +26,23 @@ public class Ascii {
         tabla = new ArrayList<String>();
         texto = "";
         leerTxtTabla();
+        tabla.set(10, "\n");
     }
 
     private void leerTxtTabla() {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("data/asciiComp.txt"));
-            String linea = br.readLine();
-            while (linea != null) {
-                tabla.add(linea);
-                linea = br.readLine();
-            }
-            br.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+    try {
+        // Usamos InputStreamReader con UTF-8
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("data/asciiComp.txt"), "UTF-8"));
+        String linea = br.readLine();
+        while (linea != null) {
+            tabla.add(linea);
+            linea = br.readLine();
         }
+        br.close();
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(null, e.getMessage());
     }
+}
 
     public boolean contains(String c) {
         int i = 0;
@@ -58,12 +63,6 @@ public class Ascii {
             i++;
         }
         return -1;
-    }
-
-    public void mostrarTabla() {
-        for (String s : tabla) {
-            System.out.println(s);
-        }
     }
 
     public String getCode(int index) {

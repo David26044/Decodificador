@@ -22,10 +22,10 @@ import javax.swing.JOptionPane;
         Decodificacion decodificador;
         
         /* Constructor */
-        public HelloSocket() {
+        public HelloSocket(Decodificacion decodificador) {
             Thread treadListener = new Thread(this);
             treadListener.start();
-            decodificador = new Decodificacion(new Ascii());
+            this.decodificador = decodificador;
         }
 
         /* Client:Data >> Socket >> Server */
@@ -38,7 +38,7 @@ import javax.swing.JOptionPane;
             } catch (UnknownHostException e) {
                 JOptionPane.showMessageDialog(null, "Client: socket(1) : UnknownHostException: " + e.getMessage());
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Client: socket(2) : IOException: " + e.getMessage());
+//                JOptionPane.showMessageDialog(null, "Client: socket(2) : IOException: " + e.getMessage());
             }
         }
 
@@ -50,7 +50,7 @@ import javax.swing.JOptionPane;
             DataInputStream inDataBuffer;
 
             try {
-                serverSocket = new ServerSocket(5000); // portListen 5050
+                serverSocket = new ServerSocket(5000); // portListen 5000
 
                 while (true) {
                     socket = serverSocket.accept();

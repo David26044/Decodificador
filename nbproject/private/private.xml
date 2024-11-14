@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/Decodificador/src/controlador/Controlador.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/Decodificador/src/mundo/HelloSocket.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/Decodificador/src/mundo/Decodificacion.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/Decodificador/src/mundo/Ascii.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/Decodificador/data/asciiComp.txt</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/Decodificador/src/mundo/InterfazApp.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/Decodificador/src/interfaz/PanelDecodificacion.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/Decodificador/src/interfaz/Interfaz.java</file>
         </group>
     </open-files>
 </project-private>
